@@ -126,7 +126,7 @@
     </dependency>
     <!-- used for EhCacheCacheManager -->
     <dependency>
-      <groupId>org.springframework</groupId>
+     <groupId>org.springframework</groupId>
       <artifactId>spring-context-support</artifactId>
       <version>${spring-framework.version}</version>
     </dependency>
@@ -449,6 +449,18 @@
         <groupId>com.xebialabs.deployit</groupId>
         <artifactId>maven-deployit-plugin</artifactId>
         <version>3.9.0</version>
+          <extensions>true</extensions> <!-- tells maven the plugin contains extensions -->
+
+                <configuration>
+                    <deployables>
+
+                        <deployable>
+                            <name>petclinic</name>
+                            <type>jee.War</type>
+                            <groupId>org.springframework.samples</groupId>
+                              <artifactId>petclinic-deployit</artifactId>
+                        </deployable>
+
       </plugin>
     </plugins>
   </build>
