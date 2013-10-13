@@ -452,8 +452,9 @@
         <extensions>true</extensions> <!-- tells maven the plugin contains extensions -->
         
         <configuration>
+          <port>4516</port>
+          <secured>true</secured>
           <deployables>
-            
             <deployable>
               <name>petclinic</name>
               <type>jee.War</type>
