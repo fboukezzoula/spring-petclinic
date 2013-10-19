@@ -452,6 +452,8 @@
         <extensions>true</extensions> <!-- tells maven the plugin contains extensions -->
         
         <configuration>
+          <serverAddress>deploynode</serverAddress>
+          <server>deployit-credentials</server>
           <port>4516</port>
           <secured>true</secured>
           <deployables>
