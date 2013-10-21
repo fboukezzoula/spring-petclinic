@@ -454,6 +454,7 @@
         <configuration>
           <serverAddress>deploynode</serverAddress>
           <port>4516</port>
+          <context></context>
           <secured>true</secured>
           <deployables>
             <deployable>
