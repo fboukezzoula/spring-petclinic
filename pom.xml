@@ -456,6 +456,8 @@
           <serverAddress>deploynode</serverAddress>
           <port>4516</port>
           <secured>true</secured>
+          <timestamped>false</timestamped>
+          <deletePreviouslyDeployedDar>true</deletePreviouslyDeployedDar>
           <deployables>
             <deployable>
               <name>petclinic</name>
