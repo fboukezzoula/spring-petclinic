@@ -460,8 +460,8 @@
             <deployable>
               <name>petclinic</name>
               <type>jee.War</type>
-              <groupId>org.springframework.samples</groupId>
-              <artifactId>petclinic</artifactId>
+              <!--<groupId>org.springframework.samples</groupId>
+              <artifactId>petclinic</artifactId>-->
             </deployable>
           </deployables>
         </configuration>    
