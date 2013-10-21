@@ -461,7 +461,7 @@
               <name>petclinic</name>
               <type>jee.War</type>
               <groupId>org.springframework.samples</groupId>
-              <artifactId>petclinic-deployit</artifactId>
+              <artifactId>petclinic</artifactId>
             </deployable>
           </deployables>
         </configuration>    
