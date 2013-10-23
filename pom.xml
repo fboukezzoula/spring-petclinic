@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.springframework.samples</groupId>
   <artifactId>petclinic</artifactId>
-  <version>TO_BE_ENFORCED</version>
+  <version>${env.BUILD_NUMBER}</version>
   
   <name>petclinic</name>
   <packaging>war</packaging>
