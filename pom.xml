@@ -465,6 +465,7 @@
               <groupId>org.springframework.samples</groupId>
               <artifactId>petclinic</artifactId>
               <version>${project.version}</version>
+              <scanPlaceholders>true</scanPlaceholders>
             </deployable>
           </deployables>
         </configuration>    
