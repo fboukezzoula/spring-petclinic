@@ -9,7 +9,7 @@
 <jsp:include page="fragments/headTag.jsp"/>
 
 <body>
-<H1>hello {{welcome.message}}</H1>
+<H1>{{welcome.message}}</H1>
 <div class="container">
     <jsp:include page="fragments/bodyHeader.jsp"/>
     <h2><fmt:message key="welcome"/></h2>
