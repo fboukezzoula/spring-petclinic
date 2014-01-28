@@ -35,7 +35,7 @@ class tomcat7 {
  
   service { "tomcat7":
     ensure  => "running",
-    require => Package["tomcat6"],
+    require => Package["tomcat7"],
   }
  
 }
