@@ -27,19 +27,19 @@ class system-update {
   }
 }
  
-class tomcat6 {
-  package { "tomcat6":
+class tomcat7 {
+  package { "tomcat7":
     ensure  => present,
     require => Class["system-update"],
   }
  
-  service { "tomcat6":
+  service { "tomcat7":
     ensure  => "running",
     require => Package["tomcat6"],
   }
  
 }
  
-include tomcat6
+include tomcat7
 include system-update
 
