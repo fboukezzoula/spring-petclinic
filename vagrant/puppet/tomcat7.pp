@@ -48,3 +48,7 @@ file { '/var/lib/tomcat7/bin':
    ensure => 'link',
    target => '/usr/share/tomcat7/bin',
 }
+file { '/var/lib/tomcat7/lib':
+   ensure => 'link',
+   target => '/usr/share/tomcat7/lib',
+}
