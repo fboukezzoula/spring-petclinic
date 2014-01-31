@@ -356,15 +356,6 @@
   <!-- Maven plugin versions are mentioned in order to guarantee the build reproducibility in the long term -->
   <build>
     <defaultGoal>install</defaultGoal>
-    <resources>
-    <resource>
-      <directory>src/main/resources</directory>
-    </resource>
-      <resource>
-        <directory>src/main/webapp/WEB-INF/jsp</directory>
-        <filtering>true</filtering>
-      </resource>
-      </resources>
     <testResources>
       <testResource>
         <!-- declared explicitly so Spring config files can be placed next to their corresponding JUnit test class 
@@ -405,6 +396,12 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>2.3</version>
         <configuration>
+              <webResources>
+        <resource>
+          <directory>src/main/webapp</directory>
+          <filtering>true</filtering>
+        </resource>
+      </webResources>
           <warName>petclinic-deployit</warName>
         </configuration>
       </plugin>
