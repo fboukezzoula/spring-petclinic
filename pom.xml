@@ -473,6 +473,12 @@
               <version>${project.version}</version>
               <scanPlaceholders>true</scanPlaceholders>
             </deployable>
+            <deployable>
+              <name>http-test</name>
+              <type>tests2.HttpRequestTest</type>
+              <ignoreCertificateWarnings>true</ignoreCertificateWarnings>
+              <url>{{test.url}}</url>
+            </deployable>
           </deployables>
         </configuration>    
       </plugin>
