@@ -46,9 +46,11 @@ include system-update
 # S. GUCLU : tweak used to generate missing links on Tomcat 7 for runtime
 file { '/var/lib/tomcat7/bin':
    ensure => 'link',
+   require => Package["tomcat7"],
    target => '/usr/share/tomcat7/bin',
 }
 file { '/var/lib/tomcat7/lib':
    ensure => 'link',
+   require => Package["tomcat7"],
    target => '/usr/share/tomcat7/lib',
 }
