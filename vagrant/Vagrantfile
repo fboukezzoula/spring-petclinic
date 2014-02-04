@@ -12,7 +12,6 @@ Vagrant::Config.run do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "centos-63-32bit-puppet"
   config.vm.host_name = "vagrantnode"
-  config.vm.synced_folder ".", "/vagrant", disabled: true
   
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -106,6 +105,9 @@ Vagrant::Config.run do |config|
   # chef-validator, unless you changed the configuration.
   #
   #   chef.validation_client_name = "ORGNAME-validator"
+  Vagrant.configure("2") do |config|
+    config.vm.synced_folder "src/", "/srv/website", disabled: true
+  end
   Vagrant::Config.run do |config|
     config.vm.provider "virtualbox" do |vb|
       vb.customize [ "modifyvm", :id, "--cpus", 2, "--memory", 2048, "--name", "VAGRANTNODE" ]
