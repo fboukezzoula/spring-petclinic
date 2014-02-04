@@ -6,7 +6,7 @@
 #make sure the puppet is installed on the .box otherwise rest of the puppet provisioning will not function
 group { "puppet":
 ensure => "present",
-}
+} 
  
 File { owner => 0, group => 0, mode => 0644 }
 file { '/etc/motd':
