@@ -10,14 +10,13 @@ Vagrant::Config.run do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "debian-607-x64-vbox4210"
+  config.vm.box = "precise32"
   config.vm.host_name = "vagrantnode"
   
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   # config.vm.box_url = "http://domain.com/path/to/above.box"
-  #config.vm.box_url = "http://files.vagrantup.com/precise32.box"
-  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/debian-607-x64-vbox4210.box"
+  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
   # Boot with a GUI so you can see the screen. (Default is headless)
   # config.vm.boot_mode = :gui
@@ -43,7 +42,7 @@ Vagrant::Config.run do |config|
   # folder, and the third is the path on the host to the actual folder.
   # config.vm.share_folder "v-data", "/vagrant_data", "../data"
 
-  # Enable provisioning with Puppet stand alone.  Puppet manifests
+  # Enable provisioning with Puppet stand alone. Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
   # You will need to create the manifests directory and a manifest in
   # the file base.pp in the manifests_path directory.
@@ -51,36 +50,36 @@ Vagrant::Config.run do |config|
   # An example Puppet manifest to provision the message of the day:
   #
   # # group { "puppet":
-  # #   ensure => "present",
+  # # ensure => "present",
   # # }
   # #
   # # File { owner => 0, group => 0, mode => 0644 }
   # #
   # # file { '/etc/motd':
-  # #   content => "Welcome to your Vagrant-built virtual machine!
-  # #               Managed by Puppet.\n"
+  # # content => "Welcome to your Vagrant-built virtual machine!
+  # # Managed by Puppet.\n"
   # # }
   #
-#  config.vm.provision :shell do |shell|
-#  shell.inline = "mkdir -p /etc/puppet/modules;
-#                  puppet module install maestrodev-jetty"
-#  end
+# config.vm.provision :shell do |shell|
+# shell.inline = "mkdir -p /etc/puppet/modules;
+# puppet module install maestrodev-jetty"
+# end
 
   config.vm.provision :puppet do |puppet|
      puppet.manifests_path = "puppet"
-     puppet.manifest_file  = "tomcat7.pp"
+     puppet.manifest_file = "tomcat7.pp"
   end
 
   # Enable provisioning with chef solo, specifying a cookbooks path (relative
   # to this Vagrantfile), and adding some recipes and/or roles.
   #
   # config.vm.provision :chef_solo do |chef|
-  #   chef.cookbooks_path = "cookbooks"
-  #   chef.add_recipe "mysql"
-  #   chef.add_role "web"
+  # chef.cookbooks_path = "cookbooks"
+  # chef.add_recipe "mysql"
+  # chef.add_role "web"
   #
-  #   # You may also specify custom JSON attributes:
-  #   chef.json = { :mysql_password => "foo" }
+  # # You may also specify custom JSON attributes:
+  # chef.json = { :mysql_password => "foo" }
   # end
 
   # Enable provisioning with chef server, specifying the chef server URL,
@@ -94,8 +93,8 @@ Vagrant::Config.run do |config|
   # validation key to validation.pem.
   #
   # config.vm.provision :chef_client do |chef|
-  #   chef.chef_server_url = "https://api.opscode.com/organizations/ORGNAME"
-  #   chef.validation_key_path = "ORGNAME-validator.pem"
+  # chef.chef_server_url = "https://api.opscode.com/organizations/ORGNAME"
+  # chef.validation_key_path = "ORGNAME-validator.pem"
   # end
   #
   # If you're using the Opscode platform, your validator client is
@@ -104,10 +103,7 @@ Vagrant::Config.run do |config|
   # IF you have your own Chef Server, the default validation client name is
   # chef-validator, unless you changed the configuration.
   #
-  #   chef.validation_client_name = "ORGNAME-validator"
-  Vagrant.configure("2") do |config|
-    config.vm.synced_folder "/vagrant", "/vagrant", disabled: true
-  end
+  # chef.validation_client_name = "ORGNAME-validator"
   Vagrant::Config.run do |config|
     config.vm.provider "virtualbox" do |vb|
       vb.customize [ "modifyvm", :id, "--cpus", 2, "--memory", 2048, "--name", "VAGRANTNODE" ]
