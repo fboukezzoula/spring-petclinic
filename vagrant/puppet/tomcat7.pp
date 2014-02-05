@@ -27,30 +27,18 @@ class system-update {
   }
 }
 
-class tomcat7 {
-  package { "tomcat7":
-    ensure  => present,
-    require => Class["system-update"],
+node "superserver" {
+  tomcat7_rhel::tomcat_application { "petclinic":
+    application_root => "/opt",
+    tomcat_user => "webuser",
+    tomcat_port => "8080",
+    jvm_envs => "-server -Xmx1024m -Xms128m -XX:MaxPermSize=256m",
+    tomcat_manager => true,
+    tomcat_admin_user => "superuser",
+    tomcat_admin_password => "secretpassword",
+    smoke_test_path => "/health-check",
+    jmx_registry_port => 10054,
+    jmx_server_port => 10053
   }
- 
-  service { "tomcat7":
-    ensure  => "running",
-    require => Package["tomcat7"],
-  }
- 
-}
- 
-include tomcat7
-include system-update
 
-# S. GUCLU : tweak used to generate missing links on Tomcat 7 for runtime
-file { '/var/lib/tomcat7/bin':
-   ensure => 'link',
-   require => Package["tomcat7"],
-   target => '/usr/share/tomcat7/bin',
-}
-file { '/var/lib/tomcat7/lib':
-   ensure => 'link',
-   require => Package["tomcat7"],
-   target => '/usr/share/tomcat7/lib',
 }
