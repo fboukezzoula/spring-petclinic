@@ -496,6 +496,7 @@
                         </property>
 </activation>    
       <build>
+      <plugins>
                <plugin>
            <groupId>com.google.code.maven-replacer-plugin</groupId>
            <artifactId>replacer</artifactId>
@@ -518,6 +519,7 @@
                </replacements>
            </configuration>
        </plugin>
+       </plugins>
       </build>
     </profile>
   </profiles>
