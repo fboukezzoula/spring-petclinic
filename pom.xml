@@ -510,7 +510,7 @@
                </execution>
            </executions>
            <configuration>
-               <file>target/${project.artifactId}/pom.xml</file>
+               <file>pom.xml</file>
                <replacements>
                    <replacement>
                        <token>${env.PIPELINE_VERSION}</token>
