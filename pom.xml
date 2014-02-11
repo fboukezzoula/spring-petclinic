@@ -5,6 +5,7 @@
   <artifactId>petclinic</artifactId>
   <version>${env.PIPELINE_VERSION}</version>
   
+  
   <name>petclinic</name>
   <packaging>war</packaging>
   
