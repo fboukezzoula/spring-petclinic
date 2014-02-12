@@ -81,7 +81,7 @@ Vagrant::Config.run do |config|
 # create / update the puppi project
   config.vm.provision :puppet do |puppet|
      puppet.manifests_path = "puppet"
-     puppet.manifest_file = "tomcat7.pp"
+     puppet.manifest_file = "puppi.pp"
   end
   
   # Enable provisioning with chef solo, specifying a cookbooks path (relative
