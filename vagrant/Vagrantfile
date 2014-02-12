@@ -68,8 +68,8 @@ Vagrant::Config.run do |config|
 # install the puppet modules
   config.vm.provision :shell do |shell|
     shell.inline = "mkdir -p /etc/puppet/modules;
-      puppet module install puppetlabs/stdlib;
-      puppet module install example42/puppi"
+      puppet module install --force puppetlabs/stdlib;
+      puppet module install --force example42/puppi"
   end
 
 # install tomcat7
