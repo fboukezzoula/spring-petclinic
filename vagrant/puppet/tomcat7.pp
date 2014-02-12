@@ -53,10 +53,3 @@ class tomcat7 {
 
 include system-update
 include tomcat7
-
-# create the puppi project
-puppi::project::war { 'petclinic-puppi':
-  source => $source_war,
-  deploy_root => '/var/lib/tomcat7/webapps',
-  #user => 'tomcat7',
-}

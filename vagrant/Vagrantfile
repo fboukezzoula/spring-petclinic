@@ -65,22 +65,25 @@ Vagrant::Config.run do |config|
 # puppet module install maestrodev-jetty"
 # end
 
+# install the puppet modules
   config.vm.provision :shell do |shell|
     shell.inline = "mkdir -p /etc/puppet/modules;
       puppet module install puppetlabs/stdlib;
       puppet module install example42/puppi"
   end
 
-  source_war =  "file://" + File.dirname(__FILE__) + "/../target/petclinic.war"
-
+# install tomcat7
   config.vm.provision :puppet do |puppet|
      puppet.manifests_path = "puppet"
      puppet.manifest_file = "tomcat7.pp"
-     puppet.facter = {
-        "source_war" => source_war
-     }
   end
 
+# create / update the puppi project
+  config.vm.provision :puppet do |puppet|
+     puppet.manifests_path = "puppet"
+     puppet.manifest_file = "tomcat7.pp"
+  end
+  
   # Enable provisioning with chef solo, specifying a cookbooks path (relative
   # to this Vagrantfile), and adding some recipes and/or roles.
   #
