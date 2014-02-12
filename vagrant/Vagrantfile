@@ -84,6 +84,12 @@ Vagrant::Config.run do |config|
      puppet.manifest_file = "puppi.pp"
   end
   
+# use puppi to deploy the war
+  config.vm.provision :shell do |shell|
+    shell.inline = "/usr/sbin/puppi deploy petclinic-puppi"
+  end
+  
+  
   # Enable provisioning with chef solo, specifying a cookbooks path (relative
   # to this Vagrantfile), and adding some recipes and/or roles.
   #

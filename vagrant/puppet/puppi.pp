@@ -5,7 +5,7 @@ puppi::project::war { 'petclinic-puppi':
 }
 
 # deploy the petclinic WAR
-exec { 'deploy-petclinic':
-  command => '/usr/sbin/puppi deploy petclinic-puppi',
-  path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ]
-}
+#exec { 'deploy-petclinic':
+#  command => '/usr/sbin/puppi deploy petclinic-puppi',
+#  path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ]
+#}
