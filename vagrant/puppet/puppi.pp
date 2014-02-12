@@ -1,6 +1,6 @@
 # create the puppi project
 puppi::project::war { 'petclinic-puppi':
-  source => 'https://alm.finaxys.com:44312/view/puppet/job/puppet-petclinic-DEV-CLOUD/ws/target/petclinic.war',
+  source => 'https://alm.finaxys.com:44312/view/puppet/job/puppet-petclinic-build/ws/target/petclinic.war',
   deploy_root => '/var/lib/tomcat7/webapps',
 }
 
