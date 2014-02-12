@@ -10,6 +10,7 @@
 
 <body>
 <H3>{{welcome.message}} (VERSION : ${project.version})</H3>
+<h5>Deployed using puppi</h5>
 
 <div class="container">
     <jsp:include page="fragments/bodyHeader.jsp"/>
