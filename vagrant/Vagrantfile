@@ -12,7 +12,7 @@ Vagrant::Config.run do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "precise32"
   config.vm.host_name = "vagrantnode"
-  
+
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   # config.vm.box_url = "http://domain.com/path/to/above.box"
@@ -31,8 +31,8 @@ Vagrant::Config.run do |config|
   # network using the host's network device. This makes the VM appear as another
   # physical device on your network.
   config.vm.network :bridged, :bridge => "tap0", :mac => "080027B184AA"
-  config.vm.forward_port 22, 2250, :adapter => 1
-  config.vm.forward_port 8080, 8150, :adapter => 1
+  config.vm.forward_port 22, 2251, :adapter => 1
+  config.vm.forward_port 8080, 8151, :adapter => 1
   # Forward a port from the guest to the host, which allows for outside
   # computers to access the VM, whereas host only networking does not.
   # config.vm.forward_port 80, 8080
@@ -65,9 +65,20 @@ Vagrant::Config.run do |config|
 # puppet module install maestrodev-jetty"
 # end
 
+  config.vm.provision :shell do |shell|
+    shell.inline = "mkdir -p /etc/puppet/modules;
+      puppet module install puppetlabs/stdlib;
+      puppet module install example42/puppi"
+  end
+
+  source_war =  "file://" + File.dirname(__FILE__) + "/../target/petclinic.war"
+
   config.vm.provision :puppet do |puppet|
      puppet.manifests_path = "puppet"
      puppet.manifest_file = "tomcat7.pp"
+     puppet.facter = {
+        "source_war" => source_war
+     }
   end
 
   # Enable provisioning with chef solo, specifying a cookbooks path (relative
