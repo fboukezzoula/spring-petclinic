@@ -403,7 +403,7 @@
           <filtering>true</filtering>
         </resource>
       </webResources>
-          <warName>petclinic-deployit</warName>
+          <warName>petclinic</warName>
         </configuration>
       </plugin>
       <plugin>
@@ -452,75 +452,43 @@
           <path>/petclinic</path>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>com.xebialabs.deployit</groupId>
-        <artifactId>maven-deployit-plugin</artifactId>
-        <version>3.9.0</version>
-        <extensions>true</extensions> <!-- tells maven the plugin contains extensions -->
-        
-        <configuration>
-          <server>deployit-credentials</server>
-          <serverAddress>deploynode</serverAddress>
-          <port>4516</port>
-          <secured>true</secured>
-          <timestamped>false</timestamped>
-          <deletePreviouslyDeployedDar>true</deletePreviouslyDeployedDar>
-          <deployables>
-            <deployable>
-              <name>petclinic</name>
-              <type>jee.War</type>
-              <groupId>org.springframework.samples</groupId>
-              <artifactId>petclinic</artifactId>
-              <version>${project.version}</version>
-              <scanPlaceholders>true</scanPlaceholders>
-            </deployable>
-            <deployable>
-              <name>http-test</name>
-              <type>tests2.HttpRequestTest</type>
-              <ignoreCertificateWarnings>true</ignoreCertificateWarnings>
-              <url>{{test.url}}</url>
-              <expectedResponseText>{{welcome.message}}</expectedResponseText>
-            </deployable>
-          </deployables>
-        </configuration>    
-      </plugin>
     </plugins>
   </build>
   
   <profiles>
     <profile>
-<id>version-apply</id>
-<activation>
-     <property>
-                            <name>version-apply</name>
-                                <value>true</value>
-                        </property>
-</activation>    
+      <id>version-apply</id>
+      <activation>
+        <property>
+          <name>version-apply</name>
+          <value>true</value>
+        </property>
+      </activation>    
       <build>
-      <plugins>
-               <plugin>
-           <groupId>com.google.code.maven-replacer-plugin</groupId>
-           <artifactId>replacer</artifactId>
-           <version>1.5.2</version>
-           <executions>
-               <execution>
-                   <phase>prepare-package</phase>
-                   <goals>
-                       <goal>replace</goal>
-                   </goals>                   
-               </execution>
-           </executions>
-           <configuration>
-               <file>pom.xml</file>
-               <replacements>
-                   <replacement>
-                       <token>${env.PIPELINE_VERSION}</token>
-                       <value>${env.PIPELINE_VERSION}</value>
-                   </replacement>         
-               </replacements>
-           </configuration>
-       </plugin>
-       </plugins>
+        <plugins>
+          <plugin>
+            <groupId>com.google.code.maven-replacer-plugin</groupId>
+            <artifactId>replacer</artifactId>
+            <version>1.5.2</version>
+            <executions>
+              <execution>
+                <phase>prepare-package</phase>
+                <goals>
+                  <goal>replace</goal>
+                </goals>                   
+              </execution>
+            </executions>
+          <configuration>
+            <file>pom.xml</file>
+              <replacements>
+                <replacement>
+                  <token>${env.PIPELINE_VERSION}</token>
+                  <value>${env.PIPELINE_VERSION}</value>
+                </replacement>         
+              </replacements>
+            </configuration>
+          </plugin>
+        </plugins>
       </build>
     </profile>
   </profiles>
