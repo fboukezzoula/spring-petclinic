@@ -487,42 +487,4 @@
     </plugins>
   </build>
   
-  <profiles>
-    <profile>
-<id>version-apply</id>
-<activation>
-     <property>
-                            <name>version-apply</name>
-                                <value>true</value>
-                        </property>
-</activation>    
-      <build>
-      <plugins>
-               <plugin>
-           <groupId>com.google.code.maven-replacer-plugin</groupId>
-           <artifactId>replacer</artifactId>
-           <version>1.5.2</version>
-           <executions>
-               <execution>
-                   <phase>prepare-package</phase>
-                   <goals>
-                       <goal>replace</goal>
-                   </goals>                   
-               </execution>
-           </executions>
-           <configuration>
-               <file>pom.xml</file>
-               <replacements>
-                   <replacement>
-                       <token>${env.PIPELINE_VERSION}</token>
-                       <value>${env.PIPELINE_VERSION}</value>
-                   </replacement>         
-               </replacements>
-           </configuration>
-       </plugin>
-       </plugins>
-      </build>
-    </profile>
-  </profiles>
-  
 </project>
