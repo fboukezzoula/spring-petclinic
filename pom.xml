@@ -467,7 +467,7 @@
           <deletePreviouslyDeployedDar>true</deletePreviouslyDeployedDar>
           <deployables>
             <deployable>
-              <name>petclinic-github</name>
+              <name>petclinic</name>
               <type>jee.War</type>
               <groupId>org.springframework.samples</groupId>
               <artifactId>petclinic</artifactId>
