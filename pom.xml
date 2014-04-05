@@ -455,7 +455,7 @@
       <plugin>
         <groupId>com.xebialabs.deployit</groupId>
         <artifactId>maven-deployit-plugin</artifactId>
-        <version>3.9.2</version>
+        <version>3.9.3</version>
         <extensions>true</extensions> <!-- tells maven the plugin contains extensions -->
         
         <configuration>
