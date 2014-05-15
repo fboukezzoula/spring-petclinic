@@ -464,6 +464,7 @@
           <port>4516</port>
           <secured>true</secured>
           <timestamped>false</timestamped>
+          <orchestrator>group-based</orchestrator>
           <deletePreviouslyDeployedDar>true</deletePreviouslyDeployedDar>
           <deployables>
             <deployable>
