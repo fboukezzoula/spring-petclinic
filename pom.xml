@@ -481,6 +481,13 @@
               <url>{{test.url}}</url>
               <expectedResponseText>{{welcome.message}}</expectedResponseText>
             </deployable>
+              <deployable>
+              <name>http-test-version</name>
+              <type>tests2.HttpRequestTest</type>
+              <ignoreCertificateWarnings>true</ignoreCertificateWarnings>
+              <url>{{test.url}}</url>
+              <expectedResponseText>${project.version}</expectedResponseText>
+            </deployable>
           </deployables>
         </configuration>    
       </plugin>
