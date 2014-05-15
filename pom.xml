@@ -465,6 +465,7 @@
           <secured>true</secured>
           <timestamped>false</timestamped>
           <orchestrator>sequential-by-deployment-group</orchestrator>
+          <generateDeployedOnUpgrade>true</generateDeployedOnUpgrade>
           <deletePreviouslyDeployedDar>true</deletePreviouslyDeployedDar>
           <deployables>
             <deployable>
@@ -482,7 +483,7 @@
               <url>{{test.url}}</url>
               <expectedResponseText>{{welcome.message}}</expectedResponseText>
             </deployable>
-              <deployable>
+            <deployable>
               <name>http-test-version</name>
               <type>tests2.HttpRequestTest</type>
               <ignoreCertificateWarnings>true</ignoreCertificateWarnings>
