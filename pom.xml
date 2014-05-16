@@ -475,6 +475,9 @@
               <artifactId>petclinic</artifactId>
               <version>${project.version}</version>
               <scanPlaceholders>true</scanPlaceholders>
+              <tags>
+                <tag>WEBAPP</tag>
+              </tags>
             </deployable>
             <deployable>
               <name>http-test</name>
@@ -482,6 +485,9 @@
               <ignoreCertificateWarnings>true</ignoreCertificateWarnings>
               <url>{{test.url}}</url>
               <expectedResponseText>{{welcome.message}}</expectedResponseText>
+              <tags>
+                <tag>TEST-ENV</tag>
+              </tags>
             </deployable>
             <deployable>
               <name>http-test-version</name>
@@ -489,6 +495,9 @@
               <ignoreCertificateWarnings>true</ignoreCertificateWarnings>
               <url>{{test.url}}</url>
               <expectedResponseText>VERSION : ${project.version}</expectedResponseText>
+              <tags>
+                <tag>TEST-VERSION</tag>
+              </tags>
             </deployable>
           </deployables>
         </configuration>    
